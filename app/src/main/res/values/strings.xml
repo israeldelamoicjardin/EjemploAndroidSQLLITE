@@ -2,6 +2,7 @@
     <string name="app_name">EjemploSQLiteAndroid</string>
 
     <string name="txtAgregarNota">Agregar una nota</string>
+    <string name="txtModificarNota">Modificar una nota</string>
     <string name="etTitulo">Titulo de la nota</string>
     <string name="edDescripcioin">Descripcion de la nota</string>
     <string name="errorGuardado">No puedo guardar textos vacios</string>

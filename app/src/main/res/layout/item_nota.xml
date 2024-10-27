@@ -22,7 +22,7 @@
             android:orientation="horizontal"
             android:layout_marginTop="10dp" >
 
-        </RelativeLayout>
+
 
         <TextView
             android:id="@+id/tv_item_nombre"
@@ -36,6 +36,21 @@
             android:hint="@string/item_titulo">
 
         </TextView>
+
+        <ImageView
+            android:id="@+id/ivActualizar"
+            android:layout_alignParentEnd="true"
+
+            android:layout_width="25dp"
+            android:layout_height="25dp"
+            android:layout_marginEnd="30dp"
+
+            android:src="@drawable/ic_editar">
+
+        </ImageView>
+        </RelativeLayout>
+
+
         <TextView
             android:id="@+id/tv_item_descripcion"
 
@@ -45,7 +60,7 @@
             android:textColor="@color/black"
             android:textStyle="bold"
 
-            android:maxLines="3"
+            android:maxLines="2"
 
             android:layout_marginTop="5dp"
 

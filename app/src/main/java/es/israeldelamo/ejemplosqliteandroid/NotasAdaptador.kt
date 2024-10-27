@@ -1,10 +1,13 @@
 package es.israeldelamo.ejemplosqliteandroid
 
 import android.content.Context
+import android.content.Intent
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.widget.ImageView
 import android.widget.TextView
+import android.widget.Toast
 import androidx.recyclerview.widget.RecyclerView
 
 /**
@@ -35,6 +38,22 @@ class NotasAdaptador (
         // en cada holder nuevo, de la nota que has leido rellena esos campos
         holder.itemTitulo.text          = nota.titulo
         holder.itemDescripcion.text     = nota.descripcion
+        // asociamos el boton de modificar
+        holder.ivActualizar.setOnClickListener    {
+            val intent = Intent(holder.itemView.context, ActualizarNotaActivity::class.java).apply {
+               //pasamos un parametro extra en la anterior actividad
+                putExtra("id_nota", nota.id)
+            }
+            //lanza la actividad y enseña en un mensaje su id
+            holder.itemView.context.startActivity(intent)
+                Toast.makeText(
+                    holder.itemView.context,
+                    "El id de la nota seleccionada es ${nota.id}",
+                    Toast.LENGTH_LONG
+                ).show()
+        }
+
+
     }
 
     /**
@@ -60,8 +79,9 @@ class NotasAdaptador (
      */
     class NotaViewHolder ( itemView: View) : RecyclerView.ViewHolder(itemView){
         //este holder contiene precisamente el titulo del item y la descripcion del item
-        val itemTitulo : TextView = itemView.findViewById(R.id.tv_item_nombre)
-        val itemDescripcion : TextView = itemView.findViewById(R.id.tv_item_descripcion)
+        val itemTitulo      : TextView      = itemView.findViewById(R.id.tv_item_nombre)
+        val itemDescripcion : TextView      = itemView.findViewById(R.id.tv_item_descripcion)
+        val ivActualizar    : ImageView     = itemView.findViewById(R.id.ivActualizar)
 
     }
 
