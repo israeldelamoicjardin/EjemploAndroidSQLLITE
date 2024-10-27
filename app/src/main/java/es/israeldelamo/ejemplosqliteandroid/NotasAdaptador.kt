@@ -51,6 +51,7 @@ class NotasAdaptador (
                     "El id de la nota seleccionada es ${nota.id}",
                     Toast.LENGTH_LONG
                 ).show()
+
         }
 
 

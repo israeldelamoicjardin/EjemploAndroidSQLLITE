@@ -128,4 +128,28 @@ class NotaDatabaseHelper (context: Context) : SQLiteOpenHelper(
         return Nota(id, titulo, descripcion)
     }
 
+
+    /**
+     * Le pasamos una nota y actualiza su contenido, tiene una sintaxis especial, no lo hace con un update de sql normal
+     */
+
+    fun updateNota(nota: Nota) {
+        val db = writableDatabase
+        // creamos los valores a cambiar
+        val values = ContentValues().apply {
+            put(COLUMN_TITLE, nota.titulo)
+            put(COLUMN_DESCRIPCION, nota.descripcion)
+        }
+
+        // parametro con las condiciones a cumplir
+        val whereClausula   = "$COLUMN_ID = ?"
+        //prametro con la lista de elmentos a buscar
+        val whereArgs       = arrayOf(nota.id.toString())
+
+        //ejecución den esta tabla con esos valores en esa clausula con esas condiciones
+        db.update(TABLE_NAME, values, whereClausula, whereArgs)
+
+        db.close()
+    }
+
 }
