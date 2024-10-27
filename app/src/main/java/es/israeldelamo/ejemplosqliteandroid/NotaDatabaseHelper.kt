@@ -66,4 +66,37 @@ class NotaDatabaseHelper (context: Context) : SQLiteOpenHelper(
         db.close()
     }
 
+    /**
+     * Lee la base de datos y rellena una List de tipo Nota
+     */
+
+    fun getAllNotas() : List<Nota> {
+        //creo una lista mutable para poder cambiar cosas
+        val listaNotas = mutableListOf<Nota>()
+
+        //la abro en modo lectura
+        val db = readableDatabase
+
+        val query = "SELECT * FROM $TABLE_NAME"
+
+        //lanza un cursor
+        val cursor = db.rawQuery(query, null)
+
+        //itera mientras que exista otro
+        while (cursor.moveToNext()){
+            val id =            cursor.getInt(cursor.getColumnIndexOrThrow(COLUMN_ID))
+            val titulo =        cursor.getString(cursor.getColumnIndexOrThrow(COLUMN_TITLE))
+            val descripcion =   cursor.getString(cursor.getColumnIndexOrThrow(COLUMN_DESCRIPCION))
+            //creamos un objeto temporal de tipo Nota
+            val nota =  Nota(id, titulo, descripcion)
+            //añadimos la nota
+            listaNotas.add(nota)
+        }
+        //cerrar las conexiones
+        cursor.close()
+        db.close()
+
+        return listaNotas
+    }
+
 }
