@@ -18,9 +18,19 @@ import androidx.recyclerview.widget.RecyclerView
  */
 
 class NotasAdaptador (
+
+
+
+
+
+    /**
+     * El listado de notas con el que vamos a trabar
+     */
     private  var notas  : List<Nota>,
     context: Context) : RecyclerView.Adapter<NotasAdaptador.NotaViewHolder>() {
 
+        //objeto de gestion de la base de datos
+    private val db : NotaDatabaseHelper = NotaDatabaseHelper(context)
 
     /**
      * CAda vez que se cree el viewHolder se dispara onCreateViewHolder
@@ -38,6 +48,8 @@ class NotasAdaptador (
         // en cada holder nuevo, de la nota que has leido rellena esos campos
         holder.itemTitulo.text          = nota.titulo
         holder.itemDescripcion.text     = nota.descripcion
+
+
         // asociamos el boton de modificar
         holder.ivActualizar.setOnClickListener    {
             val intent = Intent(holder.itemView.context, ActualizarNotaActivity::class.java).apply {
@@ -51,7 +63,24 @@ class NotasAdaptador (
                     "El id de la nota seleccionada es ${nota.id}",
                     Toast.LENGTH_LONG
                 ).show()
+        }
 
+
+        // asociamos el boton de eliminar
+        holder.ivEliminar.setOnClickListener    {
+
+            db.deleteNota(nota.id)
+
+            // enseña en un mensaje su id
+
+                Toast.makeText(
+                    holder.itemView.context,
+                    "Nota eliminada",
+                    Toast.LENGTH_LONG
+                ).show()
+            //refrescamos con las nuevas notas al reeleer la base de datos
+            refrescarLista(db.getAllNotas())
+            db.close()
         }
 
 
@@ -88,6 +117,7 @@ class NotasAdaptador (
         val itemTitulo      : TextView      = itemView.findViewById(R.id.tv_item_nombre)
         val itemDescripcion : TextView      = itemView.findViewById(R.id.tv_item_descripcion)
         val ivActualizar    : ImageView     = itemView.findViewById(R.id.ivActualizar)
+        val ivEliminar      : ImageView     = itemView.findViewById(R.id.ivEliminar)
 
     }
 

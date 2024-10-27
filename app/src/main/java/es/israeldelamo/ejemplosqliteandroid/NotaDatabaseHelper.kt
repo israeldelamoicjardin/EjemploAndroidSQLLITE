@@ -152,4 +152,19 @@ class NotaDatabaseHelper (context: Context) : SQLiteOpenHelper(
         db.close()
     }
 
+
+    /**
+     * Elimina una nota dada su id
+     */
+    fun deleteNota (idNota : Int) {
+        val db = writableDatabase
+
+        val whereClauses    = "$COLUMN_ID = ?"
+        val whereArgs       = arrayOf(idNota.toString())
+        //eliminar el objeto
+        db.delete(TABLE_NAME,whereClauses,whereArgs)
+
+        db.close()
+    }
+
 }
