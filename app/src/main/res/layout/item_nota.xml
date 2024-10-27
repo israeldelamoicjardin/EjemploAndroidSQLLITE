@@ -1,0 +1,63 @@
+<?xml version="1.0" encoding="utf-8"?>
+<com.google.android.material.card.MaterialCardView xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:elevation="4dp"
+    app:cardUseCompatPadding="true"
+    app:cardCornerRadius="8dp">
+
+    <!--ahora con la base del MaterialCarView, vamos a crear los textos -->
+
+    <androidx.appcompat.widget.LinearLayoutCompat
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:padding="15dp"
+
+        android:orientation="vertical">
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:layout_marginTop="10dp" >
+
+        </RelativeLayout>
+
+        <TextView
+            android:id="@+id/tv_item_nombre"
+
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+
+            android:textColor="@color/black"
+            android:textStyle="bold"
+
+            android:hint="@string/item_titulo">
+
+        </TextView>
+        <TextView
+            android:id="@+id/tv_item_descripcion"
+
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+
+            android:textColor="@color/black"
+            android:textStyle="bold"
+
+            android:maxLines="3"
+
+            android:layout_marginTop="5dp"
+
+            android:hint="@string/item_descripcion">
+
+        </TextView>
+
+
+
+
+
+    </androidx.appcompat.widget.LinearLayoutCompat>
+
+
+
+</com.google.android.material.card.MaterialCardView>

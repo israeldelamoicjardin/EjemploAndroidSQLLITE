@@ -6,4 +6,6 @@
     <string name="edDescripcioin">Descripcion de la nota</string>
     <string name="errorGuardado">No puedo guardar textos vacios</string>
     <string name="txtNotas">Notas</string>
+    <string name="item_titulo">Título del item</string>
+    <string name="item_descripcion">Descripcion del item</string>
 </resources>

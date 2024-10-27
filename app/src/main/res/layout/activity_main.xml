@@ -28,11 +28,15 @@
     </TextView>
 
 
+    <!-- el enlace con el item_nota se hace mediante tools:listitem="@layout/item_nota" -->
+
     <androidx.recyclerview.widget.RecyclerView
         android:id="@+id/notasRV"
         android:layout_below="@+id/txtVListadoNotas"
 
         android:padding="10dp"
+
+        tools:listitem="@layout/item_nota"
 
         android:layout_width="match_parent"
         android:layout_height="match_parent"
