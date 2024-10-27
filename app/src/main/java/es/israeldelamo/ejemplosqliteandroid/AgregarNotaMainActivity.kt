@@ -43,18 +43,30 @@ class AgregarNotaMainActivity : AppCompatActivity() {
         binding.ivGuardarNota.setOnClickListener {
             val titulo = binding.etTitulo.text.toString()
             val descripcion = binding.etDescripcion.text.toString()
-            //crepo el objeto nota
-            val nota = Nota(0,titulo,descripcion)
-            //lo inserto
-            db.insertNota(nota)
-            //cierro esta activity y abro la main
-            startActivity(Intent(applicationContext, MainActivity::class.java))
-            //limpiamos la pila
-            finishAffinity()
-            Toast.makeText(applicationContext, "Se ha agreagado la nota", Toast.LENGTH_LONG).show()
-
+            //paso los datos a la función de guardar
+            if (!titulo.isEmpty() && !descripcion.isEmpty()) {
+                guardarNota(titulo, descripcion)
+            } else {
+                Toast.makeText(applicationContext, R.string.errorGuardado, Toast.LENGTH_LONG).show()
+            }
 
         }
 
+
+
+
+    }
+    /**
+     * Asegura que los datos pasados sean validos para guardarse
+     */
+    private fun guardarNota(titulo: String, descripcion:String){
+        val nota = Nota(0,titulo,descripcion)
+        //lo inserto
+        db.insertNota(nota)
+        //cierro esta activity y abro la main
+        startActivity(Intent(applicationContext, MainActivity::class.java))
+        //limpiamos la pila
+        finishAffinity()
+        Toast.makeText(applicationContext, "Se ha agreagado la nota", Toast.LENGTH_LONG).show()
     }
 }
