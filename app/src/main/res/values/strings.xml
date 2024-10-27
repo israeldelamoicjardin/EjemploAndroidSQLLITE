@@ -1,3 +1,7 @@
 <resources>
     <string name="app_name">EjemploSQLiteAndroid</string>
+
+    <string name="txtAgregarNota">Agregar una nota</string>
+    <string name="etTitulo">Titulo de la nota</string>
+    <string name="edDescripcioin">Descripcion de la nota</string>
 </resources>
