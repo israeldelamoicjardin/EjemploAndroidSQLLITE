@@ -1,6 +1,7 @@
 package es.israeldelamo.ejemplosqliteandroid
 
 import android.app.Activity
+import android.content.Intent
 import android.os.Bundle
 import android.widget.Toast
 import androidx.activity.enableEdgeToEdge
@@ -24,9 +25,13 @@ class MainActivity : AppCompatActivity() {
 
         //ahora podemos hacer referncia al botón mediante el binding y monstar un mensajin
         binding.FABAgregarNota.setOnClickListener{
-            Toast.makeText(applicationContext,
+           /* Toast.makeText(applicationContext,
                 "Botón pulsado",
-                Toast.LENGTH_SHORT).show()
+                Toast.LENGTH_SHORT).show()*/
+
+        // con el doble dos puntos devolvemos la clase "como si fuera" o "as"
+        startActivity(Intent(applicationContext, AgregarNotaMainActivity::class.java))
+
         }
     }
 }
