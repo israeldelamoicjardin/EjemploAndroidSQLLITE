@@ -6,6 +6,43 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     tools:context=".MainActivity" >
+
+    <!--Un pequeño titulo que predezca al scroll infinito-->
+    <TextView
+        android:id="@+id/txtVListadoNotas"
+        android:layout_alignParentTop="true"
+
+        android:layout_marginTop="15dp"
+        android:layout_marginStart="15dp"
+
+        android:textColor="@color/black"
+        android:textSize="25sp"
+        android:textStyle="bold"
+        android:padding="10dp"
+        android:text="@string/txtNotas"
+
+
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content">
+
+    </TextView>
+
+
+    <androidx.recyclerview.widget.RecyclerView
+        android:id="@+id/notasRV"
+        android:layout_below="@+id/txtVListadoNotas"
+
+        android:padding="10dp"
+
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+
+        >
+
+    </androidx.recyclerview.widget.RecyclerView>
+
+
+
     <!--Ajustamos margenes para ester boton y su posicion-->
         <com.google.android.material.floatingactionbutton.FloatingActionButton
             android:id="@+id/FABAgregarNota"

@@ -5,4 +5,5 @@
     <string name="etTitulo">Titulo de la nota</string>
     <string name="edDescripcioin">Descripcion de la nota</string>
     <string name="errorGuardado">No puedo guardar textos vacios</string>
+    <string name="txtNotas">Notas</string>
 </resources>
