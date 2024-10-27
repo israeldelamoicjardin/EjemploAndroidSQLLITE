@@ -48,6 +48,19 @@
             android:src="@drawable/ic_editar">
 
         </ImageView>
+
+            <ImageView
+                android:id="@+id/ivEliminar"
+                android:layout_alignParentEnd="true"
+
+                android:layout_width="25dp"
+                android:layout_height="25dp"
+                android:layout_marginEnd="80dp"
+
+                android:src="@drawable/ic_eliminar">
+
+            </ImageView>
+
         </RelativeLayout>
 
 
