@@ -27,5 +27,9 @@ class ActualizarNotaActivity : AppCompatActivity() {
         binding = ActivityActualizarNotaBinding.inflate(layoutInflater)
         setContentView(binding.root)
 
+
+
+
+
     }
 }

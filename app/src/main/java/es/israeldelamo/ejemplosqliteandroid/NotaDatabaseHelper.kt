@@ -99,4 +99,33 @@ class NotaDatabaseHelper (context: Context) : SQLiteOpenHelper(
         return listaNotas
     }
 
+
+
+    /**
+     * Recibe un integer que es su posición en la lista, con esto recuperara los datos de la nota
+     * @return Una nota en función del integer que es su posicion
+     * @param idNota el número de la posición de la nota
+     */
+
+    fun getIdNota(idNota : Int) : Nota {
+        val db = readableDatabase
+
+        val query = "SELECT * FROM $TABLE_NAME WHERE $COLUMN_ID=$idNota"
+
+        //lanza un cursor
+        val cursor = db.rawQuery(query, null)
+        //ve al primer registro que cumpla esa condicion (esperemos que el único)
+        cursor.moveToFirst()
+
+        //leo los datos de la consulta
+        val id =            cursor.getInt(cursor.getColumnIndexOrThrow(COLUMN_ID))
+        val titulo =        cursor.getString(cursor.getColumnIndexOrThrow(COLUMN_TITLE))
+        val descripcion =   cursor.getString(cursor.getColumnIndexOrThrow(COLUMN_DESCRIPCION))
+
+        //cierro conexiones y devuelvo la nota
+        cursor.close()
+        db.close()
+        return Nota(id, titulo, descripcion)
+    }
+
 }
