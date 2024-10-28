@@ -13,7 +13,7 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:padding="15dp"
-        android:background="#E9D4B5"
+        android:background="@color/morado_claro"
 
         android:orientation="vertical">
         <RelativeLayout
@@ -30,6 +30,8 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
 
+
+            android:textSize="20dp"
             android:textColor="@color/black"
             android:textStyle="bold"
 
@@ -70,6 +72,7 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
 
+            android:textSize="15dp"
             android:textColor="@color/black"
             android:textStyle="bold"
 

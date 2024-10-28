@@ -63,7 +63,7 @@
 
             android:src="@drawable/icono_agregar_nota"
 
-            android:backgroundTint="#DD319FD3"
+            android:backgroundTint="@color/morado"
             app:tint="#B4879969"
 
             >
